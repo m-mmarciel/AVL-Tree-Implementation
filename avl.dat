@@ -1,0 +1,1232 @@
+******************************************************************************
+			 CASE OF NO PIVOT
+-----------------------------------------------------------------
+Test1: CASE OF EMPTY TREE
+
+Pre-AVLTree:
+
+(Empty tree has no nodes)
+
+Post-AVLTree:
+Inserting item: aaa
+text of aaa
+root ->  aaa: 0
+
+-----------------------------------------------------------------
+Test2: HEIGHT 2 TREE
+
+Pre-AVLTree:
+
+		  ccc: 0
+		/
+root ->  bbb: 0
+		\
+		  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: zzz
+text of zzz
+			  zzz: 0
+			/
+		  ccc: 1
+		/
+root ->  bbb: 1
+		\
+		  aaa: 0
+
+-----------------------------------------------------------------
+Test3: ADDING TO THE LEFT
+
+Pre-AVLTree:
+
+		  rrr: 0
+		/
+root ->  mmm: 0
+		\
+		  fff: 0
+
+Post-AVLTree:
+
+Inserting item: ppp
+text of ppp
+		  rrr: -1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 1
+		\
+		  fff: 0
+
+-----------------------------------------------------------------
+Test4: ADDING ACROSS NODES, TO THE RIGHT
+
+Pre-AVLTree:
+
+		  rrr: -1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 1
+		\
+		  fff: 0
+
+Post-AVLTree:
+
+Inserting Item: ggg
+text of ggg
+		  rrr: -1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  ggg: 0
+			/
+		  fff: 1
+
+-----------------------------------------------------------------
+Test5: ADDING ACROSS NODES, TO THE LEFT
+
+Pre-AVLTree:
+
+		  rrr: -1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 1
+		\
+		  fff: 0
+
+Post-AVLTree:
+
+Inserting Item: aaa
+text of aaa
+		  rrr: -1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+		  fff: -1
+			\
+			  aaa: 0
+
+******************************************************************************
+			 CASE OF IS ADDED TO SHORT SIDE
+-----------------------------------------------------------------
+Test1: CASE OF ADDING TO THE RIGHT, HEIGHT 2
+
+Pre-AVLTree:
+
+root ->  mmm: -1
+		\
+		  fff: 0
+
+Post-AVLTree:
+
+Inserting item: rrr
+text of rrr
+		  rrr: 0
+		/
+root ->  mmm: 0
+		\
+		  fff: 0
+
+-----------------------------------------------------------------
+Test2: CASE OF ADDING TO THE LEFT, HEIGHT 2
+
+Pre-AVLTree:
+
+		  rrr: 0
+		/
+root ->  mmm: 1
+
+Post-AVLTree:
+
+Inserting item: fff
+text of fff
+		  rrr: 0
+		/
+root ->  mmm: 0
+		\
+		  fff: 0
+
+-----------------------------------------------------------------
+Test3: CASE OF ADDING TO THE RIGHT, HEIGHT 3
+
+Pre-AVLTree:
+
+		  rrr: -1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: vvv
+text of vvv
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+-----------------------------------------------------------------
+Test4: CASE OF ADDING TO THE LEFT, HEIGHT 3
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 1
+
+Post-AVLTree:
+
+Inserting item: ccc
+text of ccc
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+******************************************************************************
+			 CASE OF SINGLE ROTATE LEFT
+-----------------------------------------------------------------
+Test1: CASE OF PIVOT IS THE ROOT
+
+Pre-AVLTree:
+
+		  bbb: 0
+		/
+root ->  aaa: 1
+
+Post-AVLTree:
+
+Inserting item: ccc
+text of ccc
+		  ccc: 0
+		/
+root ->  bbb: 0
+		\
+		  aaa: 0
+
+-----------------------------------------------------------------
+Test2: CASE OF PIVOT IS A RIGHT CHILD
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 1
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: www
+text of www
+			  www: 0
+			/
+		  vvv: 0
+			\
+			  rrr: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+-----------------------------------------------------------------
+Test3: CASE OF PIVOT IS A LEFT CHILD
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+		  fff: -1
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: aaa
+text of aaa
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  fff: 0
+			/
+		  ccc: 0
+			\
+			  aaa: 0
+
+-----------------------------------------------------------------
+Test4: CASE OF T1, T2, T3 ARE HEIGHT ZERO
+
+Pre-AVLTree:
+
+		  rrr: 0
+		/
+root ->  mmm: 1
+
+Post-AVLTree:
+
+Inserting item: vvv
+text of vvv
+		  vvv: 0
+		/
+root ->  rrr: 0
+		\
+		  mmm: 0
+
+-----------------------------------------------------------------
+Test5: CASE OF T1, T2, T3 ARE HEIGHT ONE
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 1
+		\
+		  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: www
+text of www
+			  www: 0
+			/
+		  vvv: 1
+		/
+root ->  rrr: 0
+		\
+			  ppp: 0
+			/
+		  mmm: 0
+			\
+			  aaa: 0
+
+-----------------------------------------------------------------
+Test6: CASE OF T1, T2, T3 ARE HEIGHT TWO
+
+Pre-AVLTree:
+
+				  www: 0
+				/
+			  vvv: 0
+				\
+				  sss: 0
+			/
+		  rrr: 0
+			\
+				  qqq: 0
+				/
+			  ppp: 0
+				\
+				  ooo: 0
+		/
+root ->  mmm: 1
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: zzz
+text of zzz
+				  zzz: 0
+				/
+			  www: 1
+			/
+		  vvv: 1
+			\
+			  sss: 0
+		/
+root ->  rrr: 0
+		\
+				  qqq: 0
+				/
+			  ppp: 0
+				\
+				  ooo: 0
+			/
+		  mmm: 0
+			\
+				  jjj: 0
+				/
+			  fff: 0
+				\
+				  ccc: 0
+
+******************************************************************************
+			 CASE OF SINGLE ROTATE RIGHT
+-----------------------------------------------------------------
+Test1: CASE OF PIVOT IS THE ROOT
+
+Pre-AVLTree:
+
+root ->  mmm: -1
+		\
+		  fff: 0
+
+Post-AVLTree:
+
+Inserting item: ccc
+text of ccc
+		  mmm: 0
+		/
+root ->  fff: 0
+		\
+		  ccc: 0
+
+-----------------------------------------------------------------
+Test2: CASE OF PIVOT IS A RIGHT CHILD
+
+Pre-AVLTree:
+
+		  rrr: -1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: nnn
+text of nnn
+			  rrr: 0
+			/
+		  ppp: 0
+			\
+			  nnn: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+-----------------------------------------------------------------
+Test3: CASE OF PIVOT IS A LEFT CHILD
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+		  fff: -1
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: aaa
+text of aaa
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  fff: 0
+			/
+		  ccc: 0
+			\
+			  aaa: 0
+
+-----------------------------------------------------------------
+Test4: CASE OF T1, T2, T3 ARE HEIGHT ZERO
+
+Pre-AVLTree:
+
+root ->  mmm: -1
+		\
+		  bbb: 0
+
+Post-AVLTree:
+
+Inserting item: aaa
+text of aaa
+		  mmm: 0
+		/
+root ->  bbb: 0
+		\
+		  aaa: 0
+
+-----------------------------------------------------------------
+Test5: CASE OF T1, T2, T3 ARE HEIGHT ONE
+
+Pre-AVLTree:
+
+		  rrr: 0
+		/
+root ->  mmm: -1
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: ddd
+text of ddd
+			  rrr: 0
+			/
+		  mmm: 0
+			\
+			  jjj: 0
+		/
+root ->  fff: 0
+		\
+			  ddd: 0
+			/
+		  ccc: 1
+
+-----------------------------------------------------------------
+Test6: CASE OF T1, T2, T3 ARE HEIGHT TWO
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: -1
+		\
+				  lll: 0
+				/
+			  kkk: 0
+				\
+				  jjj: 0
+			/
+		  iii: 0
+			\
+				  hhh: 0
+				/
+			  ggg: 0
+				\
+				  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: ddd
+text of ddd
+				  vvv: 0
+				/
+			  rrr: 0
+				\
+				  ppp: 0
+			/
+		  mmm: 0
+			\
+				  lll: 0
+				/
+			  kkk: 0
+				\
+				  jjj: 0
+		/
+root ->  iii: 0
+		\
+			  hhh: 0
+			/
+		  ggg: -1
+			\
+				  ddd: 0
+				/
+			  aaa: 1
+
+******************************************************************************
+			 CASE OF DOUBLE ROTATE LEFT RIGHT
+-----------------------------------------------------------------
+Test1: CASE OF PIVOT IS THE ROOT
+
+Pre-AVLTree:
+
+		  zzz: 0
+		/
+root ->  mmm: -1
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: iii
+text of iii
+			  zzz: 0
+			/
+		  mmm: 0
+		/
+root ->  jjj: 0
+		\
+			  iii: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+-----------------------------------------------------------------
+Test2: CASE OF PIVOT IS A RIGHT CHILD
+
+Pre-AVLTree:
+
+			  zzz: 0
+			/
+		  uuu: -1
+			\
+				  sss: 0
+				/
+			  qqq: 0
+				\
+				  ooo: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: -1
+			\
+				  eee: 0
+				/
+			  ccc: 0
+				\
+				  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: rrr
+text of rrr
+				  zzz: 0
+				/
+			  uuu: 0
+			/
+		  sss: 0
+			\
+				  rrr: 0
+				/
+			  qqq: 0
+				\
+				  ooo: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: -1
+			\
+				  eee: 0
+				/
+			  ccc: 0
+				\
+				  aaa: 0
+
+-----------------------------------------------------------------
+Test3: CASE OF PIVOT IS A LEFT CHILD
+
+Pre-AVLTree:
+
+				  zzz: 0
+				/
+			  vvv: 0
+				\
+				  ttt: 0
+			/
+		  rrr: 1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: -1
+			\
+				  ddd: 0
+				/
+			  bbb: 0
+				\
+				  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: ccc
+text of ccc
+				  zzz: 0
+				/
+			  vvv: 0
+				\
+				  ttt: 0
+			/
+		  rrr: 1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+				  jjj: 0
+				/
+			  fff: 0
+			/
+		  ddd: 0
+			\
+				  ccc: 0
+				/
+			  bbb: 0
+				\
+				  aaa: 0
+
+-----------------------------------------------------------------
+Test4: CASE OF T1, T4 ARE HEIGHT 2 - T2, T3 ARE HEIGHT 1.
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: -1
+		\
+				  lll: 0
+				/
+			  kkk: 0
+				\
+				  iii: 0
+			/
+		  fff: 0
+			\
+				  ddd: 0
+				/
+			  ccc: 0
+				\
+				  bbb: 0
+
+Post-AVLTree:
+
+Inserting item: jjj
+text of jjj
+				  vvv: 0
+				/
+			  rrr: 0
+				\
+				  ppp: 0
+			/
+		  mmm: 0
+			\
+			  lll: 0
+		/
+root ->  kkk: 0
+		\
+				  jjj: 0
+				/
+			  iii: 1
+			/
+		  fff: 0
+			\
+				  ddd: 0
+				/
+			  ccc: 0
+				\
+				  bbb: 0
+
+-----------------------------------------------------------------
+Test5: CASE OF NEW ITEM IS ADDED TO T2
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: -1
+		\
+				  lll: 0
+				/
+			  kkk: 0
+				\
+				  iii: 0
+			/
+		  fff: 0
+			\
+				  ddd: 0
+				/
+			  ccc: 0
+				\
+				  bbb: 0
+
+Post-AVLTree:
+
+Inserting item: jjj
+text of jjj
+				  vvv: 0
+				/
+			  rrr: 0
+				\
+				  ppp: 0
+			/
+		  mmm: 0
+			\
+			  lll: 0
+		/
+root ->  kkk: 0
+		\
+				  jjj: 0
+				/
+			  iii: 1
+			/
+		  fff: 0
+			\
+				  ddd: 0
+				/
+			  ccc: 0
+				\
+				  bbb: 0
+
+-----------------------------------------------------------------
+Test6: CASE OF NEW ITEM IS ADDED TO T3
+
+Pre-AVLTree:
+
+			  vvv: 0
+			/
+		  rrr: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: -1
+		\
+				  kkk: 0
+				/
+			  iii: 0
+				\
+				  ggg: 0
+			/
+		  fff: 0
+			\
+				  ddd: 0
+				/
+			  ccc: 0
+				\
+				  bbb: 0
+
+Post-AVLTree:
+
+Inserting item: lll
+text of lll
+				  vvv: 0
+				/
+			  rrr: 0
+				\
+				  ppp: 0
+			/
+		  mmm: 0
+			\
+				  lll: 0
+				/
+			  kkk: 1
+		/
+root ->  iii: 0
+		\
+			  ggg: 0
+			/
+		  fff: 0
+			\
+				  ddd: 0
+				/
+			  ccc: 0
+				\
+				  bbb: 0
+
+******************************************************************************
+			 CASE OF DOUBLE ROTATE RIGHT LEFT
+-----------------------------------------------------------------
+Test1: CASE OF PIVOT IS THE ROOT
+
+Pre-AVLTree:
+
+			  zzz: 0
+			/
+		  ttt: 0
+			\
+			  ppp: 0
+		/
+root ->  mmm: 1
+		\
+		  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: nnn
+text of nnn
+			  zzz: 0
+			/
+		  ttt: 0
+		/
+root ->  ppp: 0
+		\
+			  nnn: 0
+			/
+		  mmm: 0
+			\
+			  aaa: 0
+
+-----------------------------------------------------------------
+Test2: CASE OF PIVOT IS A RIGHT CHILD
+
+Pre-AVLTree:
+
+				  zzz: 0
+				/
+			  xxx: 0
+				\
+				  vvv: 0
+			/
+		  uuu: 1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: -1
+			\
+				  eee: 0
+				/
+			  ccc: 0
+				\
+				  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: www
+text of w
+				  zzz: 0
+				/
+			  xxx: 0
+				\
+				  www: 0
+			/
+		  vvv: 0
+			\
+			  uuu: 0
+				\
+				  ppp: 0
+		/
+root ->  mmm: 0
+		\
+			  jjj: 0
+			/
+		  fff: -1
+			\
+				  eee: 0
+				/
+			  ccc: 0
+				\
+				  aaa: 0
+
+-----------------------------------------------------------------
+Test3: CASE OF PIVOT IS A LEFT CHILD
+
+Pre-AVLTree:
+
+				  zzz: 0
+				/
+			  vvv: 0
+				\
+				  sss: 0
+			/
+		  rrr: 1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+				  lll: 0
+				/
+			  jjj: 0
+				\
+				  hhh: 0
+			/
+		  fff: 1
+			\
+			  aaa: 0
+
+Post-AVLTree:
+
+Inserting item: ggg
+text of ggg
+				  zzz: 0
+				/
+			  vvv: 0
+				\
+				  sss: 0
+			/
+		  rrr: 1
+			\
+			  ppp: 0
+		/
+root ->  mmm: 0
+		\
+				  lll: 0
+				/
+			  jjj: 0
+			/
+		  hhh: 0
+			\
+				  ggg: 0
+				/
+			  fff: 0
+				\
+				  aaa: 0
+
+-----------------------------------------------------------------
+Test4: CASE OF T1, T4 ARE HEIGHT 2 - T2, T3 ARE HEIGHT 1.
+
+Pre-AVLTree:
+
+				  zzz: 0
+				/
+			  vvv: 0
+				\
+				  ttt: 0
+			/
+		  rrr: 0
+			\
+				  qqq: 0
+				/
+			  ppp: 0
+				\
+				  nnn: 0
+		/
+root ->  mmm: 1
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: ooo
+text of ooo
+				  zzz: 0
+				/
+			  vvv: 0
+				\
+				  ttt: 0
+			/
+		  rrr: 0
+			\
+			  qqq: 0
+		/
+root ->  ppp: 0
+		\
+				  ooo: 0
+				/
+			  nnn: 1
+			/
+		  mmm: 0
+			\
+				  jjj: 0
+				/
+			  fff: 0
+				\
+				  ccc: 0
+
+-----------------------------------------------------------------
+Test5: CASE OF NEW ITEM IS ADDED TO T2
+
+Pre-AVLTree:
+
+				  zzz: 0
+				/
+			  xxx: 0
+				\
+				  www: 0
+			/
+		  vvv: 0
+			\
+				  sss: 0
+				/
+			  qqq: 0
+				\
+				  ooo: 0
+		/
+root ->  mmm: 1
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: ttt
+text of ttt
+				  zzz: 0
+				/
+			  xxx: 0
+				\
+				  www: 0
+			/
+		  vvv: 0
+			\
+				  ttt: 0
+				/
+			  sss: 1
+		/
+root ->  qqq: 0
+		\
+			  ooo: 0
+			/
+		  mmm: 0
+			\
+				  jjj: 0
+				/
+			  fff: 0
+				\
+				  ccc: 0
+
+-----------------------------------------------------------------
+Test6: CASE OF NEW ITEM IS ADDED TO T3
+
+Pre-AVLTree:
+
+				  zzz: 0
+				/
+			  xxx: 0
+				\
+				  www: 0
+			/
+		  vvv: 0
+			\
+				  sss: 0
+				/
+			  qqq: 0
+				\
+				  ooo: 0
+		/
+root ->  mmm: 1
+		\
+			  jjj: 0
+			/
+		  fff: 0
+			\
+			  ccc: 0
+
+Post-AVLTree:
+
+Inserting item: nnn
+text of nnn
+				  zzz: 0
+				/
+			  xxx: 0
+				\
+				  www: 0
+			/
+		  vvv: 0
+			\
+			  sss: 0
+		/
+root ->  qqq: 0
+		\
+			  ooo: -1
+				\
+				  nnn: 0
+			/
+		  mmm: 0
+			\
+				  jjj: 0
+				/
+			  fff: 0
+				\
+				  ccc: 0
+
